@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JACSOBOOKS", "JACSOBOOKS\JACSOBOOKS.csproj", "{3841BD66-8CC5-4B68-8071-48A79708A99E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{CE28DB9E-7CB2-42F1-93A9-BBD03F58752F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAcces", "DataAcces\DataAcces.csproj", "{9F469FDB-9FEC-464F-8185-68070480E6F6}"
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3841BD66-8CC5-4B68-8071-48A79708A99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3841BD66-8CC5-4B68-8071-48A79708A99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3841BD66-8CC5-4B68-8071-48A79708A99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3841BD66-8CC5-4B68-8071-48A79708A99E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE28DB9E-7CB2-42F1-93A9-BBD03F58752F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CE28DB9E-7CB2-42F1-93A9-BBD03F58752F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE28DB9E-7CB2-42F1-93A9-BBD03F58752F}.Release|Any CPU.ActiveCfg = Release|Any CPU
