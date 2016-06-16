@@ -7,7 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 
-namespace JACSOWebApp
+namespace JACSOBOOKSWebApp
 {
     public class Global : HttpApplication
     {

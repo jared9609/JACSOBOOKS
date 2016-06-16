@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JACSOWebApp
+namespace JACSOBOOKSWebApp
 {
 
 
-    public partial class Contact
+    public partial class _Default
     {
     }
 }
