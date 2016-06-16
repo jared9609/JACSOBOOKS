@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("JACSOWebApp")]
+[assembly: AssemblyTitle("JACSOBOOKSWebApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("JACSOWebApp")]
+[assembly: AssemblyProduct("JACSOBOOKSWebApp")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d6a767ac-fc53-4873-8385-dfd5a1be5e6b")]
+[assembly: Guid("d2e136ff-f289-4fc5-b93f-3b91cb14ce64")]
 
 // Version information for an assembly consists of the following four values:
 //

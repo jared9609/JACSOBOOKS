@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JACSOWebApp {
+namespace JACSOBOOKSWebApp {
     
     
     public partial class Site_Mobile {
