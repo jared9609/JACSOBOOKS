@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{CE28DB9E-7CB2-42F1-93A9-BBD03F58752F}"
 EndProject
@@ -12,6 +12,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindFormapp", "WindFormapp\WindFormapp.csproj", "{788E1253-4E44-4C1A-B518-920E29C6377F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JACSOBOOKSWebApp", "JACSOBOOKSWebApp\JACSOBOOKSWebApp.csproj", "{D2E136FF-F289-4FC5-B93F-3B91CB14CE64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{0DF0A36B-4B2A-4B2F-A3DD-C4237D246F04}"
+	ProjectSection(SolutionItems) = preProject
+		dbJacsobookESC.sql = dbJacsobookESC.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
