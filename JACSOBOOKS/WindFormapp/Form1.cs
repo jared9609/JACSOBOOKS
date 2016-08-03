@@ -29,8 +29,7 @@ namespace WindFormapp
                 if (usuario == textBox1.Text && contraseña == textBox2.Text)
                 {
                     Datos.Ac = bd.selectstring("select nivel from suarios where usuario = '" + textBox1.TextLength + "'");
-                    Menu f2 = new Menu();
-                    f2.Show();
+                    
                     this.Hide();
 
                 }
