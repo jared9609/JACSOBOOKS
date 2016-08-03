@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WindFormapp</RootNamespace>
     <AssemblyName>WindFormapp</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BaseDatosIMUB">
+      <HintPath>..\..\..\..\..\Desktop\BaseDatosIMUB.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,115 +50,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calendar Girl.cs">
+    <Compile Include="Datos.cs" />
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calendar Girl.Designer.cs">
-      <DependentUpon>Calendar Girl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Donde los escorpiones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Donde los escorpiones.Designer.cs">
-      <DependentUpon>Donde los escorpiones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="El dia que el cielo se caiga.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="El dia que el cielo se caiga.Designer.cs">
-      <DependentUpon>El dia que el cielo se caiga.cs</DependentUpon>
-    </Compile>
-    <Compile Include="El silencio de la ciudad blanca.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="El silencio de la ciudad blanca.Designer.cs">
-      <DependentUpon>El silencio de la ciudad blanca.cs</DependentUpon>
-    </Compile>
-    <Compile Include="La chica del tren.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="La chica del tren.Designer.cs">
-      <DependentUpon>La chica del tren.cs</DependentUpon>
-    </Compile>
-    <Compile Include="La maldicion de la reyna Leonor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="La maldicion de la reyna Leonor.Designer.cs">
-      <DependentUpon>La maldicion de la reyna Leonor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="La viuda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="La viuda.Designer.cs">
-      <DependentUpon>La viuda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Los besos en el pan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Los besos en el pan.Designer.cs">
-      <DependentUpon>Los besos en el pan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Mi recuerdo es mas fuerte que tu olviso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mi recuerdo es mas fuerte que tu olviso.Designer.cs">
-      <DependentUpon>Mi recuerdo es mas fuerte que tu olviso.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="Olvide decirte quiero.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Olvide decirte quiero.Designer.cs">
-      <DependentUpon>Olvide decirte quiero.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Principal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Principal.Designer.cs">
-      <DependentUpon>Principal.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Calendar Girl.resx">
-      <DependentUpon>Calendar Girl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Donde los escorpiones.resx">
-      <DependentUpon>Donde los escorpiones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="El dia que el cielo se caiga.resx">
-      <DependentUpon>El dia que el cielo se caiga.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="El silencio de la ciudad blanca.resx">
-      <DependentUpon>El silencio de la ciudad blanca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="La chica del tren.resx">
-      <DependentUpon>La chica del tren.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="La maldicion de la reyna Leonor.resx">
-      <DependentUpon>La maldicion de la reyna Leonor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="La viuda.resx">
-      <DependentUpon>La viuda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Los besos en el pan.resx">
-      <DependentUpon>Los besos en el pan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mi recuerdo es mas fuerte que tu olviso.resx">
-      <DependentUpon>Mi recuerdo es mas fuerte que tu olviso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Olvide decirte quiero.resx">
-      <DependentUpon>Olvide decirte quiero.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="Properties\Settings.settings">
@@ -177,56 +98,28 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
-    <Folder Include="imagenes\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\La chica del tren.jpg" />
+    <None Include="Resources\logo1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\donde los escorpiones.jpg" />
+    <None Include="Resources\logo2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\la viuda.jpg" />
+    <None Include="Resources\per.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\el dia que el cielo se caiga}.jpg" />
+    <None Include="Resources\ba.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\la maldicion de la reyna leonor.jpg" />
+    <None Include="Resources\percy.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\el silencio de la ciudad blanca.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mi recuerdo es mas fuerte que tu olviso.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\calendar girl.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\los besos en el pan.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\olvide decirte quiero.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fondo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fondo1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\zu.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\negro.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\calendar girl1.jpg" />
+    <None Include="Resources\jue.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
