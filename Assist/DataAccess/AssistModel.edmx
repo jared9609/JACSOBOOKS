@@ -1,0 +1,855 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AssistModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Asignacion">
+          <Key>
+            <PropertyRef Name="PKAsignacion" />
+          </Key>
+          <Property Name="PKAsignacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKMedico" Type="int" Nullable="false" />
+          <Property Name="FKEspecialidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CitaMedica">
+          <Key>
+            <PropertyRef Name="PKCita" />
+          </Key>
+          <Property Name="PKCita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKMedico" Type="int" Nullable="false" />
+          <Property Name="FKEspecialidad" Type="int" Nullable="false" />
+          <Property Name="Fec_Cita" Type="date" Nullable="false" />
+          <Property Name="Duracion" Type="int" Nullable="false" />
+          <Property Name="Hra_Ini" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Hra_Fin" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FKPaciente" Type="int" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="PKMedico" />
+          </Key>
+          <Property Name="PKMedico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Especialidad">
+          <Key>
+            <PropertyRef Name="PKEspecialidad" />
+          </Key>
+          <Property Name="PKEspecialidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Especialidad" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="PkState" />
+          </Key>
+          <Property Name="PkState" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FkCountry" Type="int" Nullable="false" />
+          <Property Name="CveEnt" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Abrev" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CveCap" Type="varchar" MaxLength="7" />
+          <Property Name="NameCap" Type="varchar" MaxLength="100" />
+          <Property Name="PTOT" Type="varchar" MaxLength="10" />
+          <Property Name="PMAS" Type="varchar" MaxLength="10" />
+          <Property Name="PFEM" Type="varchar" MaxLength="10" />
+          <Property Name="VTOT" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Municipio">
+          <Key>
+            <PropertyRef Name="PkCity" />
+          </Key>
+          <Property Name="PkCity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FkCountry" Type="int" Nullable="false" />
+          <Property Name="FkState" Type="int" Nullable="false" />
+          <Property Name="CveEnt" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="CveCity" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CveCab" Type="varchar" MaxLength="4" />
+          <Property Name="NameCab" Type="varchar" MaxLength="100" />
+          <Property Name="PTOT" Type="varchar" MaxLength="10" />
+          <Property Name="PMAS" Type="varchar" MaxLength="10" />
+          <Property Name="PFEM" Type="varchar" MaxLength="10" />
+          <Property Name="VTOT" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="PKPaciente" />
+          </Key>
+          <Property Name="PKPaciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Num_Exp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Fec_Nac" Type="date" Nullable="false" />
+          <Property Name="FKCountry" Type="int" Nullable="false" />
+          <Property Name="FKState" Type="int" Nullable="false" />
+          <Property Name="FKCity" Type="int" Nullable="false" />
+          <Property Name="Colonia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Calle" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cod_Postal" Type="varchar" MaxLength="5" />
+          <Property Name="Telefono" Type="varchar" MaxLength="10" />
+          <Property Name="Celular" Type="varchar" MaxLength="13" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Curp" Type="varchar" MaxLength="18" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="PkCountry" />
+          </Key>
+          <Property Name="PkCountry" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="FIPS104" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="ISO2" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="ISO3" Type="varchar" MaxLength="3" />
+          <Property Name="ISON" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Internet" Type="varchar" MaxLength="2" />
+          <Property Name="Capital" Type="varchar" MaxLength="25" />
+          <Property Name="MapReference" Type="varchar" MaxLength="50" />
+          <Property Name="NationalitySingular" Type="varchar" MaxLength="35" />
+          <Property Name="NationalityPlural" Type="varchar" MaxLength="35" />
+          <Property Name="Currency" Type="varchar" MaxLength="30" />
+          <Property Name="CurrencyCode" Type="varchar" MaxLength="3" />
+          <Property Name="Population" Type="bigint" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Comment" Type="varchar" MaxLength="2048" />
+        </EntityType>
+        <Association Name="FK__Estado__FkCountr__15502E78">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Estado" Type="Self.Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Estado">
+              <PropertyRef Name="FkCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estado__FkCountr__22AA2996">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Estado" Type="Self.Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Estado">
+              <PropertyRef Name="FkCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estado__FkCountr__2D27B809">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Estado" Type="Self.Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Estado">
+              <PropertyRef Name="FkCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__FkCou__164452B1">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="FkCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__FkCou__239E4DCF">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="FkCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__FkCou__2E1BDC42">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="FkCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__FkSta__173876EA">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="PkState" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="FkState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__FkSta__24927208">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="PkState" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="FkState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__FkSta__2F10007B">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="PkState" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="FkState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CitaMedica_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="CitaMedica" Type="Self.CitaMedica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="PKMedico" />
+            </Principal>
+            <Dependent Role="CitaMedica">
+              <PropertyRef Name="FKMedico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CitaMedica_Especialidad">
+          <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="1" />
+          <End Role="CitaMedica" Type="Self.CitaMedica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especialidad">
+              <PropertyRef Name="PKEspecialidad" />
+            </Principal>
+            <Dependent Role="CitaMedica">
+              <PropertyRef Name="FKEspecialidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CitaMedica_Paciente">
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+          <End Role="CitaMedica" Type="Self.CitaMedica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paciente">
+              <PropertyRef Name="PKPaciente" />
+            </Principal>
+            <Dependent Role="CitaMedica">
+              <PropertyRef Name="FKPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paciente_Estado">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="PkState" />
+            </Principal>
+            <Dependent Role="Paciente">
+              <PropertyRef Name="FKState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paciente_Municipio">
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="1" />
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipio">
+              <PropertyRef Name="PkCity" />
+            </Principal>
+            <Dependent Role="Paciente">
+              <PropertyRef Name="FKCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paciente_Pais">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Paciente">
+              <PropertyRef Name="FKCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AssistModelStoreContainer">
+          <EntitySet Name="Asignacion" EntityType="Self.Asignacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CitaMedica" EntityType="Self.CitaMedica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Especialidad" EntityType="Self.Especialidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Municipio" EntityType="Self.Municipio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paciente" EntityType="Self.Paciente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Estado__FkCountr__15502E78" Association="Self.FK__Estado__FkCountr__15502E78">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Estado" EntitySet="Estado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estado__FkCountr__22AA2996" Association="Self.FK__Estado__FkCountr__22AA2996">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Estado" EntitySet="Estado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estado__FkCountr__2D27B809" Association="Self.FK__Estado__FkCountr__2D27B809">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Estado" EntitySet="Estado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__FkCou__164452B1" Association="Self.FK__Municipio__FkCou__164452B1">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Municipio" EntitySet="Municipio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__FkCou__239E4DCF" Association="Self.FK__Municipio__FkCou__239E4DCF">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Municipio" EntitySet="Municipio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__FkCou__2E1BDC42" Association="Self.FK__Municipio__FkCou__2E1BDC42">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Municipio" EntitySet="Municipio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__FkSta__173876EA" Association="Self.FK__Municipio__FkSta__173876EA">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Municipio" EntitySet="Municipio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__FkSta__24927208" Association="Self.FK__Municipio__FkSta__24927208">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Municipio" EntitySet="Municipio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__FkSta__2F10007B" Association="Self.FK__Municipio__FkSta__2F10007B">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Municipio" EntitySet="Municipio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CitaMedica_Doctor" Association="Self.FK_CitaMedica_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="CitaMedica" EntitySet="CitaMedica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CitaMedica_Especialidad" Association="Self.FK_CitaMedica_Especialidad">
+            <End Role="Especialidad" EntitySet="Especialidad" />
+            <End Role="CitaMedica" EntitySet="CitaMedica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CitaMedica_Paciente" Association="Self.FK_CitaMedica_Paciente">
+            <End Role="Paciente" EntitySet="Paciente" />
+            <End Role="CitaMedica" EntitySet="CitaMedica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paciente_Estado" Association="Self.FK_Paciente_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Paciente" EntitySet="Paciente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paciente_Municipio" Association="Self.FK_Paciente_Municipio">
+            <End Role="Municipio" EntitySet="Municipio" />
+            <End Role="Paciente" EntitySet="Paciente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paciente_Pais" Association="Self.FK_Paciente_Pais">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Paciente" EntitySet="Paciente" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AssistModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Asignacion">
+          <Key>
+            <PropertyRef Name="PKAsignacion" />
+          </Key>
+          <Property Name="PKAsignacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKMedico" Type="Int32" Nullable="false" />
+          <Property Name="FKEspecialidad" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CitaMedica">
+          <Key>
+            <PropertyRef Name="PKCita" />
+          </Key>
+          <Property Name="PKCita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKMedico" Type="Int32" Nullable="false" />
+          <Property Name="FKEspecialidad" Type="Int32" Nullable="false" />
+          <Property Name="Fec_Cita" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Duracion" Type="Int32" Nullable="false" />
+          <Property Name="Hra_Ini" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hra_Fin" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FKPaciente" Type="Int32" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_CitaMedica_Doctor" FromRole="CitaMedica" ToRole="Doctor" />
+          <NavigationProperty Name="Especialidad" Relationship="Self.FK_CitaMedica_Especialidad" FromRole="CitaMedica" ToRole="Especialidad" />
+          <NavigationProperty Name="Paciente" Relationship="Self.FK_CitaMedica_Paciente" FromRole="CitaMedica" ToRole="Paciente" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="PKMedico" />
+          </Key>
+          <Property Name="PKMedico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CitaMedicas" Relationship="Self.FK_CitaMedica_Doctor" FromRole="Doctor" ToRole="CitaMedica" />
+        </EntityType>
+        <EntityType Name="Especialidad">
+          <Key>
+            <PropertyRef Name="PKEspecialidad" />
+          </Key>
+          <Property Name="PKEspecialidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Especialidad1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CitaMedicas" Relationship="Self.FK_CitaMedica_Especialidad" FromRole="Especialidad" ToRole="CitaMedica" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="PkState" />
+          </Key>
+          <Property Name="PkState" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FkCountry" Type="Int32" Nullable="false" />
+          <Property Name="CveEnt" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Abrev" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CveCap" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="NameCap" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PTOT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PMAS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PFEM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VTOT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pai" Relationship="Self.FK__Estado__FkCountr__15502E78" FromRole="Estado" ToRole="Pais" />
+          <NavigationProperty Name="Pai1" Relationship="Self.FK__Estado__FkCountr__22AA2996" FromRole="Estado" ToRole="Pais" />
+          <NavigationProperty Name="Municipios" Relationship="Self.FK__Municipio__FkSta__173876EA" FromRole="Estado" ToRole="Municipio" />
+          <NavigationProperty Name="Municipios1" Relationship="Self.FK__Municipio__FkSta__24927208" FromRole="Estado" ToRole="Municipio" />
+          <NavigationProperty Name="Pacientes" Relationship="Self.FK_Paciente_Estado" FromRole="Estado" ToRole="Paciente" />
+        </EntityType>
+        <EntityType Name="Municipio">
+          <Key>
+            <PropertyRef Name="PkCity" />
+          </Key>
+          <Property Name="PkCity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FkCountry" Type="Int32" Nullable="false" />
+          <Property Name="FkState" Type="Int32" Nullable="false" />
+          <Property Name="CveEnt" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CveCity" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CveCab" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="NameCab" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PTOT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PMAS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PFEM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VTOT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Estado" Relationship="Self.FK__Municipio__FkSta__173876EA" FromRole="Municipio" ToRole="Estado" />
+          <NavigationProperty Name="Estado1" Relationship="Self.FK__Municipio__FkSta__24927208" FromRole="Municipio" ToRole="Estado" />
+          <NavigationProperty Name="Pai" Relationship="Self.FK__Municipio__FkCou__164452B1" FromRole="Municipio" ToRole="Pais" />
+          <NavigationProperty Name="Pai1" Relationship="Self.FK__Municipio__FkCou__239E4DCF" FromRole="Municipio" ToRole="Pais" />
+          <NavigationProperty Name="Pacientes" Relationship="Self.FK_Paciente_Municipio" FromRole="Municipio" ToRole="Paciente" />
+        </EntityType>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="PKPaciente" />
+          </Key>
+          <Property Name="PKPaciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Num_Exp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fec_Nac" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FKCountry" Type="Int32" Nullable="false" />
+          <Property Name="FKState" Type="Int32" Nullable="false" />
+          <Property Name="FKCity" Type="Int32" Nullable="false" />
+          <Property Name="Colonia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Calle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cod_Postal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CitaMedicas" Relationship="Self.FK_CitaMedica_Paciente" FromRole="Paciente" ToRole="CitaMedica" />
+          <NavigationProperty Name="Estado" Relationship="Self.FK_Paciente_Estado" FromRole="Paciente" ToRole="Estado" />
+          <NavigationProperty Name="Municipio" Relationship="Self.FK_Paciente_Municipio" FromRole="Paciente" ToRole="Municipio" />
+          <NavigationProperty Name="Pai" Relationship="Self.FK_Paciente_Pais" FromRole="Paciente" ToRole="Pais" />
+          <Property Name="Curp" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Pai">
+          <Key>
+            <PropertyRef Name="PkCountry" />
+          </Key>
+          <Property Name="PkCountry" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FIPS104" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISO2" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISO3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ISON" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Internet" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Capital" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="MapReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NationalitySingular" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="NationalityPlural" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Currency" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Population" Type="Int64" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Estadoes" Relationship="Self.FK__Estado__FkCountr__15502E78" FromRole="Pais" ToRole="Estado" />
+          <NavigationProperty Name="Estadoes1" Relationship="Self.FK__Estado__FkCountr__22AA2996" FromRole="Pais" ToRole="Estado" />
+          <NavigationProperty Name="Municipios" Relationship="Self.FK__Municipio__FkCou__164452B1" FromRole="Pais" ToRole="Municipio" />
+          <NavigationProperty Name="Municipios1" Relationship="Self.FK__Municipio__FkCou__239E4DCF" FromRole="Pais" ToRole="Municipio" />
+          <NavigationProperty Name="Pacientes" Relationship="Self.FK_Paciente_Pais" FromRole="Pais" ToRole="Paciente" />
+        </EntityType>
+        <Association Name="FK_CitaMedica_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="CitaMedica" Type="Self.CitaMedica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="PKMedico" />
+            </Principal>
+            <Dependent Role="CitaMedica">
+              <PropertyRef Name="FKMedico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CitaMedica_Especialidad">
+          <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="1" />
+          <End Role="CitaMedica" Type="Self.CitaMedica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especialidad">
+              <PropertyRef Name="PKEspecialidad" />
+            </Principal>
+            <Dependent Role="CitaMedica">
+              <PropertyRef Name="FKEspecialidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CitaMedica_Paciente">
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+          <End Role="CitaMedica" Type="Self.CitaMedica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paciente">
+              <PropertyRef Name="PKPaciente" />
+            </Principal>
+            <Dependent Role="CitaMedica">
+              <PropertyRef Name="FKPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estado__FkCountr__15502E78">
+          <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
+          <End Role="Estado" Type="Self.Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Estado">
+              <PropertyRef Name="FkCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estado__FkCountr__22AA2996">
+          <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
+          <End Role="Estado" Type="Self.Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Estado">
+              <PropertyRef Name="FkCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__FkSta__173876EA">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="PkState" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="FkState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__FkSta__24927208">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="PkState" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="FkState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paciente_Estado">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="PkState" />
+            </Principal>
+            <Dependent Role="Paciente">
+              <PropertyRef Name="FKState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__FkCou__164452B1">
+          <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="FkCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__FkCou__239E4DCF">
+          <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="FkCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paciente_Municipio">
+          <End Role="Municipio" Type="Self.Municipio" Multiplicity="1" />
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipio">
+              <PropertyRef Name="PkCity" />
+            </Principal>
+            <Dependent Role="Paciente">
+              <PropertyRef Name="FKCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paciente_Pais">
+          <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PkCountry" />
+            </Principal>
+            <Dependent Role="Paciente">
+              <PropertyRef Name="FKCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbAssistEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Asignacions" EntityType="Self.Asignacion" />
+          <EntitySet Name="CitaMedicas" EntityType="Self.CitaMedica" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+          <EntitySet Name="Especialidads" EntityType="Self.Especialidad" />
+          <EntitySet Name="Estadoes" EntityType="Self.Estado" />
+          <EntitySet Name="Municipios" EntityType="Self.Municipio" />
+          <EntitySet Name="Pacientes" EntityType="Self.Paciente" />
+          <EntitySet Name="Pais" EntityType="Self.Pai" />
+          <AssociationSet Name="FK_CitaMedica_Doctor" Association="Self.FK_CitaMedica_Doctor">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="CitaMedica" EntitySet="CitaMedicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CitaMedica_Especialidad" Association="Self.FK_CitaMedica_Especialidad">
+            <End Role="Especialidad" EntitySet="Especialidads" />
+            <End Role="CitaMedica" EntitySet="CitaMedicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CitaMedica_Paciente" Association="Self.FK_CitaMedica_Paciente">
+            <End Role="Paciente" EntitySet="Pacientes" />
+            <End Role="CitaMedica" EntitySet="CitaMedicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estado__FkCountr__15502E78" Association="Self.FK__Estado__FkCountr__15502E78">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Estado" EntitySet="Estadoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estado__FkCountr__22AA2996" Association="Self.FK__Estado__FkCountr__22AA2996">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Estado" EntitySet="Estadoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__FkSta__173876EA" Association="Self.FK__Municipio__FkSta__173876EA">
+            <End Role="Estado" EntitySet="Estadoes" />
+            <End Role="Municipio" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__FkSta__24927208" Association="Self.FK__Municipio__FkSta__24927208">
+            <End Role="Estado" EntitySet="Estadoes" />
+            <End Role="Municipio" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paciente_Estado" Association="Self.FK_Paciente_Estado">
+            <End Role="Estado" EntitySet="Estadoes" />
+            <End Role="Paciente" EntitySet="Pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__FkCou__164452B1" Association="Self.FK__Municipio__FkCou__164452B1">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Municipio" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__FkCou__239E4DCF" Association="Self.FK__Municipio__FkCou__239E4DCF">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Municipio" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paciente_Municipio" Association="Self.FK_Paciente_Municipio">
+            <End Role="Municipio" EntitySet="Municipios" />
+            <End Role="Paciente" EntitySet="Pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paciente_Pais" Association="Self.FK_Paciente_Pais">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Paciente" EntitySet="Pacientes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AssistModelStoreContainer" CdmEntityContainer="dbAssistEntities">
+          <EntitySetMapping Name="Asignacions">
+            <EntityTypeMapping TypeName="AssistModel.Asignacion">
+              <MappingFragment StoreEntitySet="Asignacion">
+                <ScalarProperty Name="PKAsignacion" ColumnName="PKAsignacion" />
+                <ScalarProperty Name="FKMedico" ColumnName="FKMedico" />
+                <ScalarProperty Name="FKEspecialidad" ColumnName="FKEspecialidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CitaMedicas">
+            <EntityTypeMapping TypeName="AssistModel.CitaMedica">
+              <MappingFragment StoreEntitySet="CitaMedica">
+                <ScalarProperty Name="PKCita" ColumnName="PKCita" />
+                <ScalarProperty Name="FKMedico" ColumnName="FKMedico" />
+                <ScalarProperty Name="FKEspecialidad" ColumnName="FKEspecialidad" />
+                <ScalarProperty Name="Fec_Cita" ColumnName="Fec_Cita" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Hra_Ini" ColumnName="Hra_Ini" />
+                <ScalarProperty Name="Hra_Fin" ColumnName="Hra_Fin" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="FKPaciente" ColumnName="FKPaciente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="AssistModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="PKMedico" ColumnName="PKMedico" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Especialidads">
+            <EntityTypeMapping TypeName="AssistModel.Especialidad">
+              <MappingFragment StoreEntitySet="Especialidad">
+                <ScalarProperty Name="PKEspecialidad" ColumnName="PKEspecialidad" />
+                <ScalarProperty Name="Especialidad1" ColumnName="Especialidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estadoes">
+            <EntityTypeMapping TypeName="AssistModel.Estado">
+              <MappingFragment StoreEntitySet="Estado">
+                <ScalarProperty Name="PkState" ColumnName="PkState" />
+                <ScalarProperty Name="FkCountry" ColumnName="FkCountry" />
+                <ScalarProperty Name="CveEnt" ColumnName="CveEnt" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Abrev" ColumnName="Abrev" />
+                <ScalarProperty Name="CveCap" ColumnName="CveCap" />
+                <ScalarProperty Name="NameCap" ColumnName="NameCap" />
+                <ScalarProperty Name="PTOT" ColumnName="PTOT" />
+                <ScalarProperty Name="PMAS" ColumnName="PMAS" />
+                <ScalarProperty Name="PFEM" ColumnName="PFEM" />
+                <ScalarProperty Name="VTOT" ColumnName="VTOT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Municipios">
+            <EntityTypeMapping TypeName="AssistModel.Municipio">
+              <MappingFragment StoreEntitySet="Municipio">
+                <ScalarProperty Name="PkCity" ColumnName="PkCity" />
+                <ScalarProperty Name="FkCountry" ColumnName="FkCountry" />
+                <ScalarProperty Name="FkState" ColumnName="FkState" />
+                <ScalarProperty Name="CveEnt" ColumnName="CveEnt" />
+                <ScalarProperty Name="CveCity" ColumnName="CveCity" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CveCab" ColumnName="CveCab" />
+                <ScalarProperty Name="NameCab" ColumnName="NameCab" />
+                <ScalarProperty Name="PTOT" ColumnName="PTOT" />
+                <ScalarProperty Name="PMAS" ColumnName="PMAS" />
+                <ScalarProperty Name="PFEM" ColumnName="PFEM" />
+                <ScalarProperty Name="VTOT" ColumnName="VTOT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pacientes">
+            <EntityTypeMapping TypeName="AssistModel.Paciente">
+              <MappingFragment StoreEntitySet="Paciente">
+                <ScalarProperty Name="Curp" ColumnName="Curp" />
+                <ScalarProperty Name="PKPaciente" ColumnName="PKPaciente" />
+                <ScalarProperty Name="Num_Exp" ColumnName="Num_Exp" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Fec_Nac" ColumnName="Fec_Nac" />
+                <ScalarProperty Name="FKCountry" ColumnName="FKCountry" />
+                <ScalarProperty Name="FKState" ColumnName="FKState" />
+                <ScalarProperty Name="FKCity" ColumnName="FKCity" />
+                <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="Cod_Postal" ColumnName="Cod_Postal" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pais">
+            <EntityTypeMapping TypeName="AssistModel.Pai">
+              <MappingFragment StoreEntitySet="Pais">
+                <ScalarProperty Name="PkCountry" ColumnName="PkCountry" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FIPS104" ColumnName="FIPS104" />
+                <ScalarProperty Name="ISO2" ColumnName="ISO2" />
+                <ScalarProperty Name="ISO3" ColumnName="ISO3" />
+                <ScalarProperty Name="ISON" ColumnName="ISON" />
+                <ScalarProperty Name="Internet" ColumnName="Internet" />
+                <ScalarProperty Name="Capital" ColumnName="Capital" />
+                <ScalarProperty Name="MapReference" ColumnName="MapReference" />
+                <ScalarProperty Name="NationalitySingular" ColumnName="NationalitySingular" />
+                <ScalarProperty Name="NationalityPlural" ColumnName="NationalityPlural" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="Population" ColumnName="Population" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
