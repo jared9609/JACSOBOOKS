@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindFormapp
 {
-    public partial class La_viuda : Form
+    public partial class frmViuda : Form
     {
-        public La_viuda()
+        public frmViuda()
         {
             InitializeComponent();
         }

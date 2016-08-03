@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindFormapp
 {
-    public partial class La_chica_del_tren : Form
+    public partial class frmChica : Form
     {
-        public La_chica_del_tren()
+        public frmChica()
         {
             InitializeComponent();
         }

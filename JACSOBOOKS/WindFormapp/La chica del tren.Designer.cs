@@ -1,6 +1,6 @@
 ﻿namespace WindFormapp
 {
-    partial class La_chica_del_tren
+    partial class frmChica
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(La_chica_del_tren));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChica));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -155,7 +155,7 @@
             this.button2.Text = "Regresar pagina principal";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // La_chica_del_tren
+            // frmChica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -169,7 +169,7 @@
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "La_chica_del_tren";
+            this.Name = "frmChica";
             this.Text = "La chica del tren";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
